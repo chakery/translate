@@ -1,6 +1,14 @@
 ## translate
 
-An electron-vue project
+A multi platform translation application for pc
+
+### Download
+
+[Download For Windows]()
+
+[Download For macOS]()
+
+[Download For Linux]()
 
 ### Build Setup
 
