@@ -19,7 +19,7 @@
       <el-col :span="12">
         <div class="grid-content">
           <el-card class="box-card" :body-style="cardBodyStyle">
-            <div slot="header" class="clearfix"><span style="line-height: 18px;">Google</span></div>
+            <div slot="header" class="clearfix noselect"><span style="line-height: 18px;">Google</span></div>
             <div class="translate-content" v-loading="google_loading">
               <translateResult :contents="google_result" />
             </div>
@@ -29,7 +29,7 @@
       <el-col :span="12">
         <div class="grid-content">
           <el-card class="box-card" :body-style="cardBodyStyle">
-            <div slot="header" class="clearfix"><span style="line-height: 18px;">Youdao</span></div>
+            <div slot="header" class="clearfix noselect"><span style="line-height: 18px;">Youdao</span></div>
             <div class="translate-content"  v-loading="youdao_loading">
               <translateResult :contents="youdao_result" />
             </div>
@@ -41,7 +41,7 @@
       <el-col :span="12">
         <div class="grid-content">
           <el-card class="box-card" :body-style="cardBodyStyle">
-            <div slot="header" class="clearfix"><span style="line-height: 18px;">Bing</span></div>
+            <div slot="header" class="clearfix noselect"><span style="line-height: 18px;">Bing</span></div>
             <div class="translate-content"  v-loading="bing_loading">
               <translateResult :contents="bing_result" />
             </div>
@@ -51,7 +51,7 @@
       <el-col :span="12">
         <div class="grid-content">
           <el-card class="box-card" :body-style="cardBodyStyle">
-            <div slot="header" class="clearfix"><span style="line-height: 18px;">Baidu</span></div>
+            <div slot="header" class="clearfix noselect"><span style="line-height: 18px;">Baidu</span></div>
             <div class="translate-content"  v-loading="baidu_loading">
               <translateResult :contents="baidu_result" />
             </div>
@@ -65,8 +65,18 @@
 <script>
   import translateResult from './translate-result'
   import jquery from 'jquery'
+  import { ipcRenderer, clipboard } from 'electron'
 
   export default {
+    created() {
+      // 监听 quick_translating_notification 快捷键事件，获取粘贴板内容，进行翻译
+      ipcRenderer.on('quick_translating_notification', (event, arg) => {
+        var con = clipboard.readText()
+        if (con.trim().length == 0) { return }
+        this.originalContent = con
+        this.translateHandler()
+      })
+    },
     components: {
       translateResult
     },
@@ -192,5 +202,13 @@
   overflow: scroll;
   /*word-break: break-all;*/
   /*word-wrap: break-word;*/
+}
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 </style>

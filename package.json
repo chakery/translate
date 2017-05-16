@@ -1,7 +1,7 @@
 {
   "name": "translate",
-  "version": "0.0.0",
-  "description": "An electron-vue project",
+  "version": "1.0.0",
+  "description": "An Translate project",
   "scripts": {
     "build": "node tasks/release.js",
     "build:clean": "cross-env PLATFORM_TARGET=clean node tasks/release.js",
@@ -15,7 +15,7 @@
     "pack:renderer": "cross-env NODE_ENV=production webpack -p --progress --colors --config webpack.renderer.config.js",
     "postinstall": "cd app && npm install"
   },
-  "author": "Greg Holguin <simulatedgreg@gmail.com>",
+  "author": "Chakery <chakerychen@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.8.0",
