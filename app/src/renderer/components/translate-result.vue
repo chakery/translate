@@ -12,6 +12,9 @@
 
 <style>
 .item {
+  padding: 10px;
   font-size: 14px;
+  word-break: break-all;
+  word-wrap: break-word;
 }
 </style>

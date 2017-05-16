@@ -188,8 +188,9 @@
 .translate-content {
   width: 100%;
   height: 245px;
-  padding: 10px;
+  /*padding: 10px;*/
   overflow: scroll;
-  word-break: break-all;
+  /*word-break: break-all;*/
+  /*word-wrap: break-word;*/
 }
 </style>

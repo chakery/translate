@@ -6,7 +6,7 @@ import Electron from 'vue-electron'
 Vue.use(ElementUI)
 Vue.use(Electron)
 
-Vue.config.debug = true
+Vue.config.debug = false
 
 import App from './App'
 
