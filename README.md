@@ -1,10 +1,14 @@
-# translate
+## translate
 
-> An electron-vue project
+An electron-vue project
 
-## Build Setup
+### Build Setup
 
 ``` bash
+# clone
+git clone https://github.com/Chakery/translate.git
+cd translate
+
 # install dependencies
 npm install
 
