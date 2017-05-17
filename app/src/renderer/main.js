@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import App from './App'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
 import Electron from 'vue-electron'
@@ -6,9 +7,7 @@ import Electron from 'vue-electron'
 Vue.use(ElementUI)
 Vue.use(Electron)
 
-Vue.config.debug = false
-
-import App from './App'
+Vue.config.debug = true
 
 /* eslint-disable no-new */
 new Vue({

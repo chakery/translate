@@ -6,13 +6,20 @@
 
 <script>
   export default {
-    props: ['err', 'contents'],
+    created() {
+    },
+    props: ['contents'],
+    data() {
+      return {
+        
+      }
+    },
   }
 </script>
 
 <style>
 .item {
-  padding: 10px;
+  padding: 10px 10px 0px 10px;
   font-size: 14px;
   word-break: break-all;
   word-wrap: break-word;
