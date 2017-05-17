@@ -41,6 +41,10 @@ app.on('will-quit', function () {
   mainWindow = null
 });
 
+app.on('before-quit', () => {
+  force_quit = true
+})
+
 // create window
 function createWindow () {
 
@@ -53,13 +57,14 @@ function createWindow () {
 
   mainWindow.loadURL(winURL)
 
-  mainWindow.on('close', function(e){
+  mainWindow.on('close', (e) => {
     if(!force_quit){
       e.preventDefault()
       mainWindow.hide()
+    } else {
+      mainWindow = null
     }
   })
-
 }
 
 // create Tray
