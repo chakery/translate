@@ -120,7 +120,7 @@
       translateByGoogle(query) {
         // this.google_loading = true
         // this.google_result = ['google翻译暂不可用']
-        
+
         // tjs
         //   .translate({ api: 'GoogleCN', text: this.originalContent })
         //   .then(result => {
