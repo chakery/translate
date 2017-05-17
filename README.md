@@ -6,7 +6,7 @@ A multi platform translation application for pc
 
 [Download For Windows]()
 
-[Download For macOS]()
+[Download For macOS](https://github.com/Chakery/translate/releases/download/v0.0.1-beta.1/Translate.for.macOS.zip)
 
 [Download For Linux]()
 
@@ -28,10 +28,6 @@ npm run build
 
 ```
 
-### TODO
-- 解决Google翻译没有反应的BUG
-- 解决关闭所有window的问题
-- 解决Bing翻译没结果的问题(数据解释)
 
 ### License
 MIT License
