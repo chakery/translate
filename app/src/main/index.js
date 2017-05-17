@@ -56,7 +56,7 @@ function createWindow () {
 
 // create Tray
 function createTray() {
-  tray = new Tray('/Users/chakery/Desktop/translate/app/icons/tray.png')
+  tray = new Tray('/Users/chakery/Downloads/web/translate/app/icons/tray.png')
   tray.on('click', () => {
     showWindow()
   })

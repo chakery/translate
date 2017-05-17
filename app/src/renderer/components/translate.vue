@@ -62,6 +62,9 @@
   </div>
 </template>
 
+<script src="https://unpkg.com/superagent/superagent.js"></script>
+<script src="https://unpkg.com/translation.js/dist/translation.js"></script>
+
 <script>
   import translateResult from './translate-result'
   import jquery from 'jquery'
@@ -116,7 +119,15 @@
       },
       translateByGoogle(query) {
         // this.google_loading = true
-        this.google_result = ['google翻译暂不可用']
+        // this.google_result = ['google翻译暂不可用']
+        
+        // tjs
+        //   .translate({ api: 'GoogleCN', text: this.originalContent })
+        //   .then(result => {
+        //     alert(result)
+        //   }, err => {
+        //     alert(err)
+        //   })
       },
       translateByYoudao(query) {
         this.youdao_loading = true
@@ -198,10 +209,8 @@
 .translate-content {
   width: 100%;
   height: 245px;
-  /*padding: 10px;*/
+  padding: 10px;
   overflow: scroll;
-  /*word-break: break-all;*/
-  /*word-wrap: break-word;*/
 }
 .noselect {
   -webkit-touch-callout: none;

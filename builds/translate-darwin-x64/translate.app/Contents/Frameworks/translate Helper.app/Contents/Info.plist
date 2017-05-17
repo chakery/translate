@@ -7,7 +7,7 @@
     <key>CFBundleIdentifier</key>
     <string>com.electron.translate.helper</string>
     <key>CFBundleName</key>
-    <string>translate</string>
+    <string>Translate</string>
     <key>CFBundlePackageType</key>
     <string>APPL</string>
     <key>DTSDKBuild</key>
@@ -23,8 +23,8 @@
     <key>NSSupportsAutomaticGraphicsSwitching</key>
     <true/>
     <key>CFBundleDisplayName</key>
-    <string>translate Helper</string>
+    <string>Translate Helper</string>
     <key>CFBundleExecutable</key>
-    <string>translate Helper</string>
+    <string>Translate Helper</string>
   </dict>
 </plist>
