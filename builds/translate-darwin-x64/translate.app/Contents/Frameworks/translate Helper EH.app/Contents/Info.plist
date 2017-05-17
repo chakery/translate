@@ -5,13 +5,13 @@
     <key>BuildMachineOSBuild</key>
     <string>15G31</string>
     <key>CFBundleDisplayName</key>
-    <string>translate Helper EH</string>
+    <string>Translate Helper EH</string>
     <key>CFBundleExecutable</key>
-    <string>translate Helper EH</string>
+    <string>Translate Helper EH</string>
     <key>CFBundleIdentifier</key>
     <string>com.electron.translate.helper.EH</string>
     <key>CFBundleName</key>
-    <string>translate Helper EH</string>
+    <string>Translate Helper EH</string>
     <key>CFBundlePackageType</key>
     <string>APPL</string>
     <key>DTSDKBuild</key>
