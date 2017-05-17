@@ -84,6 +84,7 @@
       return {
           cardBodyStyle: { padding: 0 },
           originalContent: "",
+          // originalContentIsZh: false,
 
           google_loading: false,
           youdao_loading: false,
@@ -99,6 +100,8 @@
     props: [],
     methods: {
       translateHandler() {
+        // var pattern = /[\u4e00-\u9fa5]/
+        // this.originalContentIsZh = pattern.test(this.originalContent)
 
         this.google_result = []
         this.youdao_result = []
@@ -111,8 +114,12 @@
         this.translateByBaidu(this.originalContent)
       },
       translateByGoogle(query) {
-        this.google_loading = false
-        this.google_result = ['google不可用呢']
+        this.google_loading = true
+        var url = 'http://104.194.82.252:3000/google?query=' + query
+        jquery.get(url, res => {
+          this.google_loading = false
+          this.google_result = [res]
+        })
       },
       translateByYoudao(query) {
         this.youdao_loading = true
