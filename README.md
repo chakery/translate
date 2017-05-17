@@ -1,10 +1,22 @@
-# translate
+### Translate
 
-> An electron-vue project
+A multi platform translation application for pc
 
-## Build Setup
+### Download
+
+[Download For Windows]()
+
+[Download For macOS]()
+
+[Download For Linux]()
+
+### Build Setup
 
 ``` bash
+# clone
+git clone https://github.com/Chakery/translate.git
+cd translate
+
 # install dependencies
 npm install
 
@@ -14,11 +26,24 @@ npm run dev
 # build electron app for production
 npm run build
 
-# run webpack in production
-npm run pack
 ```
-More information can be found [here](https://simulatedgreg.gitbooks.io/electron-vue/content/en/npm_scripts.html).
 
----
+### TODO
+- 解决Google翻译没有反应的BUG
+- 解决关闭所有window的问题
+- 解决Bing翻译没结果的问题(数据解释)
 
-This project was generated from [electron-vue](https://github.com/SimulatedGREG/electron-vue) using [vue-cli](https://github.com/vuejs/vue-cli). Documentation about this project can be found [here](https://simulatedgreg.gitbooks.io/electron-vue/content/index.html).
+### License
+MIT License
+
+Copyright (c) 2017 
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
