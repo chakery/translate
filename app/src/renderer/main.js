@@ -7,7 +7,7 @@ import Electron from 'vue-electron'
 Vue.use(ElementUI)
 Vue.use(Electron)
 
-Vue.config.debug = true
+Vue.config.debug = false
 
 /* eslint-disable no-new */
 new Vue({

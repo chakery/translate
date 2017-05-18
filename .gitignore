@@ -58,4 +58,8 @@ typings/
 .env
 
 builds/
+<<<<<<< HEAD
 dist/
+=======
+dist/
+>>>>>>> 0b898de3bd6d4797b331bb8b3fcb6d871c125108

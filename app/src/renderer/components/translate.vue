@@ -62,6 +62,9 @@
   </div>
 </template>
 
+<script src="https://unpkg.com/superagent/superagent.js"></script>
+<script src="https://unpkg.com/translation.js/dist/translation.js"></script>
+
 <script>
   import translateResult from './translate-result'
   import jquery from 'jquery'
@@ -75,6 +78,12 @@
         if (con.trim().length == 0) { return }
         this.originalContent = con
         this.translateHandler()
+      })
+
+      // 监听清理内容
+      ipcRenderer.on('clean_content_notification', (e, arg) => {
+        this.originalContent = ''
+        this.cleanResults()
       })
     },
     components: {
@@ -99,15 +108,14 @@
     },
     props: [],
     methods: {
-      translateHandler() {
-        // var pattern = /[\u4e00-\u9fa5]/
-        // this.originalContentIsZh = pattern.test(this.originalContent)
-
+      cleanResults() {
         this.google_result = []
         this.youdao_result = []
         this.bing_result = []
         this.baidu_result = []
-
+      },
+      translateHandler() {
+        this.cleanResults()
         this.translateByGoogle(this.originalContent)
         this.translateByYoudao(this.originalContent)
         this.translateByBing(this.originalContent)
@@ -193,10 +201,8 @@
 .translate-content {
   width: 100%;
   height: 245px;
-  /*padding: 10px;*/
+  padding: 10px;
   overflow: scroll;
-  /*word-break: break-all;*/
-  /*word-wrap: break-word;*/
 }
 .noselect {
   -webkit-touch-callout: none;

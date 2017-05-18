@@ -2,9 +2,9 @@
 
 import { app, BrowserWindow, Menu, globalShortcut, ipcMain, Tray } from 'electron'
 
-
 let mainWindow = null
 let tray = null
+var force_quit = false
 
 const winURL = process.env.NODE_ENV === 'development' ? `http://localhost:${require('../../../config').port}` : `file://${__dirname}/index.html`
 
@@ -13,6 +13,18 @@ app.on('ready', () => {
   createMenu()
   createTray()
   setupShortcut()
+
+  app.on('before-quit', function (e) {
+    if(!force_quit){
+      e.preventDefault()
+      mainWindow.hide()
+      sendCleanContentNotification()
+    }
+  })
+
+  app.on('activate-with-no-open-windows', function(){
+    mainWindow.show()
+  })
 })
 
 app.on('window-all-closed', (e) => {
@@ -22,21 +34,21 @@ app.on('window-all-closed', (e) => {
 })
 
 app.on('activate', () => {
-  if (mainWindow === null) {
-    createWindow()
-  }
+  mainWindow.show()
 })
 
-app.on('will-quit', () => {
+app.on('will-quit', function () {
   globalShortcut.unregisterAll()
-})
+  mainWindow = null
+});
 
+app.on('before-quit', () => {
+  force_quit = true
+})
 
 // create window
 function createWindow () {
-  /**
-   * Initial window options
-   */
+
   mainWindow = new BrowserWindow({
     height: 720,
     width: 600,
@@ -46,12 +58,15 @@ function createWindow () {
 
   mainWindow.loadURL(winURL)
 
-  mainWindow.on('closed', (e) => {
-    mainWindow = null
+  mainWindow.on('close', (e) => {
+    if(!force_quit){
+      e.preventDefault()
+      mainWindow.hide()
+      sendCleanContentNotification()
+    } else {
+      mainWindow = null
+    }
   })
-
-  // eslint-disable-next-line no-console
-  console.log('mainWindow opened')
 }
 
 // create Tray
@@ -113,7 +128,10 @@ function createMenu() {
         {role: 'hideothers'},
         {role: 'unhide'},
         {type: 'separator'},
-        {role: 'quit'}
+        {label: 'quit', accelerator:'CmdOrCtrl+Q', click: () => {
+          force_quit = true
+          app.quit()
+        }}
       ]
     })
 
@@ -157,4 +175,8 @@ function showWindow() {
   } else {
     mainWindow.show()
   }
+}
+
+function sendCleanContentNotification() {
+  mainWindow.webContents.send('clean_content_notification')
 }
