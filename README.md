@@ -1,6 +1,11 @@
 ### Translate
 
-A multi platform translation application for pc
+A multi platform translation application for pc.
+
+![translate](https://github.com/Chakery/translate/blob/master/Screenshots.gif)
+
+### Using
+`cmd+T` (`Ctrl+T`) quick start and translated the content on the clipboard.
 
 ### Download
 
