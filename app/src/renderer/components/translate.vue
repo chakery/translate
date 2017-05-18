@@ -62,9 +62,6 @@
   </div>
 </template>
 
-<script src="https://unpkg.com/superagent/superagent.js"></script>
-<script src="https://unpkg.com/translation.js/dist/translation.js"></script>
-
 <script>
   import translateResult from './translate-result'
   import jquery from 'jquery'
