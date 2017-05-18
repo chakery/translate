@@ -1,6 +1,6 @@
 ### Translate
 
-A multi platform translation application for pc.
+A multi platform translation application for pc. Now only support chinese-english mutual translation.
 
 ![translate](https://github.com/Chakery/translate/blob/master/Screenshots.gif)
 
