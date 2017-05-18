@@ -1,12 +1,17 @@
 ### Translate
 
-A multi platform translation application for pc
+A multi platform translation application for pc. Now only support chinese-english mutual translation.
+
+![translate](https://github.com/Chakery/translate/blob/master/Screenshots.gif)
+
+### Using
+`cmd+T` (`Ctrl+T`) quick start and translated the content on the clipboard.
 
 ### Download
 
 [Download For Windows]()
 
-[Download For macOS](https://github.com/Chakery/translate/releases/download/v0.0.1-beta.1/Translate.for.macOS.zip)
+[Download For macOS](https://github.com/Chakery/translate/releases/download/v0.0.1-beta.2/Translate.app.zip)
 
 [Download For Linux]()
 
