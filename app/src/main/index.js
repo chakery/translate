@@ -1,6 +1,7 @@
 'use strict'
 
 import { app, BrowserWindow, Menu, globalShortcut, ipcMain, Tray } from 'electron'
+import path from 'path'
 
 let mainWindow = null
 let tray = null
@@ -71,7 +72,8 @@ function createWindow () {
 
 // create Tray
 function createTray() {
-  tray = new Tray('/Users/chakery/Desktop/translate/app/icons/tray.png')
+  let trayPath = path.join(__dirname, 'tray.png');
+  tray = new Tray(trayPath)
   tray.on('click', () => {
     showWindow()
   })
@@ -163,7 +165,7 @@ function createMenu() {
 
 // setup shortcut
 function setupShortcut() {
-  globalShortcut.register('CommandOrControl+T', () => {
+  globalShortcut.register('CmdOrCtrl+T', () => {
     showWindow()
     mainWindow.webContents.send('quick_translating_notification')
   })
