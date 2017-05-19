@@ -82,6 +82,7 @@
         this.originalContent = ''
         this.cleanResults()
       })
+
     },
     components: {
       translateResult

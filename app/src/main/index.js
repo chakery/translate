@@ -14,18 +14,18 @@ app.on('ready', () => {
   createMenu()
   createTray()
   setupShortcut()
+})
 
-  app.on('before-quit', function (e) {
-    if(!force_quit){
-      e.preventDefault()
-      mainWindow.hide()
-      sendCleanContentNotification()
-    }
-  })
+app.on('before-quit', (e) => {
+  if(!force_quit){
+    e.preventDefault()
+    mainWindow.hide()
+    sendCleanContentNotification()
+  }
+})
 
-  app.on('activate-with-no-open-windows', function(){
-    mainWindow.show()
-  })
+app.on('activate-with-no-open-windows', () => {
+  mainWindow.show()
 })
 
 app.on('window-all-closed', (e) => {
@@ -38,16 +38,20 @@ app.on('activate', () => {
   mainWindow.show()
 })
 
-app.on('will-quit', function () {
+app.on('will-quit', () => {
   globalShortcut.unregisterAll()
   mainWindow = null
-});
+})
 
 app.on('before-quit', () => {
   force_quit = true
 })
 
-// create window
+// -------------------------------------------------------
+//                      井水不犯河水
+// -------------------------------------------------------
+
+// 创建window
 function createWindow () {
 
   mainWindow = new BrowserWindow({
@@ -70,16 +74,16 @@ function createWindow () {
   })
 }
 
-// create Tray
+// 创建 Tray
 function createTray() {
-  let trayPath = path.join(__dirname, 'tray.png');
-  tray = new Tray(trayPath)
-  tray.on('click', () => {
-    showWindow()
-  })
+  // let trayPath = __dirname + '/tray.png'
+  // tray = new Tray(trayPath)
+  // tray.on('click', () => {
+  //   showWindow()
+  // })
 }
 
-// Create the Application's main menu
+// 创建应用菜单
 function createMenu() {
   const template = [
   {
@@ -130,7 +134,7 @@ function createMenu() {
         {role: 'hideothers'},
         {role: 'unhide'},
         {type: 'separator'},
-        {label: 'quit', accelerator:'CmdOrCtrl+Q', click: () => {
+        {label: 'quit', accelerator:'CommandOrControl+Q', click: () => {
           force_quit = true
           app.quit()
         }}
@@ -163,22 +167,24 @@ function createMenu() {
   Menu.setApplicationMenu(menu)
 }
 
-// setup shortcut
-function setupShortcut() {
-  globalShortcut.register('CmdOrCtrl+T', () => {
-    showWindow()
-    mainWindow.webContents.send('quick_translating_notification')
-  })
+// 快速翻译通知
+function sendQuickTranslateNotification() {
+  mainWindow.webContents.send('quick_translating_notification')
 }
 
-function showWindow() {
-  if (mainWindow === null) {
-    createWindow()
-  } else {
-    mainWindow.show()
-  }
-}
-
+// 清理内容通知
 function sendCleanContentNotification() {
   mainWindow.webContents.send('clean_content_notification')
+}
+
+// 设置快捷键
+function setupShortcut() {
+  globalShortcut.register('CommandOrControl+T', () => {
+    mainWindow.show()
+    sendQuickTranslateNotification()
+  })
+  globalShortcut.register('ctrl+t', () => {
+    mainWindow.show()
+    sendQuickTranslateNotification()
+  })
 }
