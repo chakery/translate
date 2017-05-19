@@ -31,6 +31,8 @@ npm run dev
 # build electron app for production
 npm run build
 
+# run build in China
+ELECTRON_MIRROR=http://npm.taobao.org/mirrors/electron/ npm run build
 ```
 
 
