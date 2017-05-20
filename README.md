@@ -9,11 +9,11 @@ A multi platform translation application for pc. Now only support chinese-englis
 
 ### Download
 
-[Download For Windows](https://github.com/Chakery/translate/releases/download/v0.0.1-beta.3/Translate.windows.exe.zip)
+[Download For Windows](https://github.com/Chakery/translate/releases/download/v0.0.1-beta.4/Translate.windows.exe.zip)
 
-[Download For macOS](https://github.com/Chakery/translate/releases/download/v0.0.1-beta.3/Translate.app.zip)
+[Download For macOS](https://github.com/Chakery/translate/releases/download/v0.0.1-beta.4/Translate.app.zip)
 
-[Download For Linux](https://github.com/Chakery/translate/releases/download/v0.0.1-beta.3/Translate.linux.zip)
+[Download For Linux](https://github.com/Chakery/translate/releases/download/v0.0.1-beta.4/Translate.linux.zip)
 
 ### Build Setup
 
